@@ -17,15 +17,15 @@
 			<key>metadata</key>
 			<dict>
 				<key>bundle-identifier</key>
-				<string>com.niit-tech.demo.*</string>
+				<string>com.niit-tech.demo.-</string>
 				<key>bundle-version</key>
 				<string>1.0</string>
 				<key>kind</key>
 				<string>software</string>
 				<key>subtitle</key>
-				<string>demo</string>
+				<string>EES</string>
 				<key>title</key>
-				<string>demo</string>
+				<string>EES</string>
 			</dict>
 		</dict>
 	</array>
