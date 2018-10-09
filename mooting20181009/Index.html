@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta charset="utf-8"><!-- utf-8 works for most cases --><meta name="viewport" content="width=device-width"><!-- Forcing initial-scale shouldn't be necessary --><meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Use the latest (edge) version of IE rendering engine --><meta name="x-apple-disable-message-reformatting"><!-- Disable auto-scale in iOS 10 Mail entirely -->
+	<title></title>
+	<!-- The title tag shows in email notifications, like Android 4.4. --><!-- Web Font / @font-face : BEGIN --><!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. --><!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. --><!--[if mso]>
+		<style>
+			* {
+				font-family: sans-serif !important;
+			}
+		</style>
+	<![endif]--><!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ --><!--[if !mso]><!--><!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> --><!--<![endif]--><!-- Web Font / @font-face : END --><!-- CSS Reset -->
+	<style type="text/css">.container {
+  position: relative;
+  width: 90%;
+  padding:10px;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+	</style>
+	<style type="text/css">table#t01 {
+    border-collapse: collapse;
+    border: 1px solid black;
+     text-align: justify;
+     font-size:	12px;
+     
+    
+}
+td#td01 {
+    height: 30px;
+
+    vertical-align: bottom;
+      text-align: justify;
+      border: 1px solid black;
+   
+}
+th#th01 {
+    border: 1px solid black;
+     text-align: justify;
+}
+table#tmain {
+    border: 5px solid #DF6422;
+}
+td img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+	</style>
+	<style type="text/css">/* What it does: Remove spaces around the email design added by some email clients. */
+		/* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+        html,
+        body {
+	        margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+        
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+        
+        /* What is does: Centers email on Android 4.4 */
+        div[style*="margin: 16px 0"] {
+            margin:0 !important;
+        }
+        
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        table,
+        td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+                
+        /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+        table {
+            border-spacing: 0 !important;
+             border: 1px solid black
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+        table table table {
+            table-layout: auto; 
+        }
+        
+        
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        img {
+            -ms-interpolation-mode:bicubic;
+        }
+        
+        /* What it does: A work-around for iOS meddling in triggered links. */
+        *[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
+        /* What it does: A work-around for Gmail meddling in triggered links. */
+        .x-gmail-data-detectors,
+        .x-gmail-data-detectors *,
+        .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+        }
+
+        /* What it does: Prevents underlining the button text in Windows 10 */
+        .button-link {
+            text-decoration: none !important;
+        }
+      
+        /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+        /* Create one of these media queries for each additional viewport size you'd like to fix */
+        /* Thanks to Eric Lepetit @ericlepetitsf) for help troubleshooting */
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) { /* iPhone 6 and 6+ */
+            .email-container {
+                min-width: 375px !important;
+            }
+        }
+	</style>
+	<!-- Progressive Enhancements -->
+	<style type="text/css">/* What it does: Hover styles for buttons */
+        .button-td,
+        .button-a {
+            transition: all 100ms ease-in;
+        }
+        .button-td:hover,
+        .button-a:hover {
+            background: #555555 !important;
+            border-color: #555555 !important;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 600px) {
+
+            .email-container {
+                width: 100% !important;
+                margin: auto !important;
+            }
+
+            /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+            .fluid {
+                max-width: 100% !important;
+                height: auto !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* What it does: Forces table cells into full-width rows. */
+            .stack-column,
+            .stack-column-center {
+                display: block !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                direction: ltr !important;
+            }
+            /* And center justify these ones. */
+            .stack-column-center {
+                text-align: justify !important;
+            }
+        
+            /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+            .center-on-narrow {
+                text-align: justify !important;
+                display: block !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+                float: none !important;
+            }
+            table.center-on-narrow {
+                display: inline-block !important;
+            }
+                
+        }
+	</style>
+</head>
+<body bgcolor="#FFFFFF" style="margin: 0; mso-line-height-rule: exactly;" width="100%">
+<center style="width: 100%; background: #FFFFFF;"><!-- Email Body : BEGIN -->
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="email-container" role="presentation" style="margin: auto;" width="600"><!-- Hero Image, Flush : BEGIN -->
+	<tbody>
+		<tr>
+			<td bgcolor="#FFFFFF"><br />
+			<img alt="logo" height="110px" src="http://www.lloydlawcollege.edu.in/mailimages/logo_200_200.png" width="100px" /></td>
+		</tr>
+		<!-- Hero Image, Flush : END --><!-- 1 Column Text : BEGIN -->
+		<tr>
+			<td bgcolor="#FFFFFF" style="padding: 10px; text-align: justify; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;">
+			<p> </p>
+
+
+<p>Dear Parents / Students,<br />Greetings from Lloyd Law College!<br />There is an adage that &ldquo;Law is a jealous mistress&rdquo; and there is no room in it for the lazy and mediocre. Lloyd Law College is a learning-centric academic community committed to excellent legal education. We create intellectually stimulating environment that helps students develop through case studies and case analysis; hone their writing, argumentation, and counseling skills; and think broadly and critically about legal problem-solution. We work to keep these programs at the vanguard of legal education. We takes efforts to provide an individualized support approach to each students' academic and specific needs and concerns.<br />This mail shall bring forth following important issues;<br />1<span style="background-color: #00ff00;">. ATTENDANCE PROGRESSION &amp; REGULAR CLASSES</span><br />2.<span style="background-color: #ffff00;"> MANDATORY ATTENDANCE REGULATION</span></p>
+<p style="text-align: center;"><br /><strong><span style="background-color: #00ffff;">ATTENDANCE PROGRESSION</span></strong></p>
+<p><br />This is to inform all the parents and the students currently studying in the <span style="background-color: #00ffff;">LL.B. - Sem. I, III, V</span> that daily attendance as marked in the classes are uploaded on the 'Academy' portal of the law school website www.lloydlawcollege.edu.in <span style="background-color: #ffff00;"><strong>Attendance as marked during the month 04 Aug. - 23 Sept. 2018 is updated in all cases on the 'academy'</strong>.</span> Kindly take note of your current attendance status and keep in mind the rules of sitting for the end semester university examinations as mentioned in every mail sent to you all the time and as below. In case of any grievance, kindly follow proper process to get the grievances redressed.</p>
+<p><br /><strong><span style="background-color: #ffff00;">MOST IMPORTANT NOTE OF CAUTION:</span></strong></p>
+<p><br />&bull; Oct.-Nov. 2018 are the last two months as opportunity to all such students who fell short of 66% minimum attendance criterion in regular classes during this odd semester. <br />&bull; Way forward, no other opportunity will be provided, no excuse will be heard and no exception will be entertained / granted in any case of any student for deflating the 66% minimum attendance criterion, and the defaulters shall not be allowed in any case to sit for the end semester university examinations Dec. 2018. <br />&bull; In case of default, student will be solely responsible for his fate and negligence, law school has been communicating the rule, conducting the regular classes and communicating the attendance progression on periodical intervals to each student of this law school.</p>
+<p><br /><strong><span style="background-color: #00ffff;">MANDATORY ATTENDANCE REGULATION: </span></strong></p>
+<p><br />&bull; Four and half hr. lecture times have been allotted for each course every week. Each time you are given one attendance for a class. That will be dealt by the &lsquo;Attendance Code&rsquo; as mailed to you. Furthermore, campus/class discipline, research project and internship presentations are linked to your routine class attendance.<br />&bull; Regular classes for LL.B. - Sem. I, III, V began as per schedule. Attending classes regularly is mandatory on each student. Attendance as taken in each class daily is recorded and punched into the software that cannot be changed later. <span style="background-color: #ffff00;">66% class attendance in regular classes is the minimum criteria for appearing in the University Examination failing which the College will not approve the examination form of the students to the university.</span> No grounds shall be considered to deflate the rule of 66% attendance. The same is in compliance with the attendance rules and criterions of the University Grants Commission (the regulator of the Universities in India), Bar Council of India (the patron of professional legal education in India), Affiliated University i.e. Chaudhary Charan Singh University, Meerut (CCS, University) and by way of various judgments as delivered by the Hon'ble Supreme Court of India. <br />a) UGC (Minimum Standards of Instruction for the Grant of the First Degree through Formal Education) Regulations, 2003.<span style="background-color: #ffff00;"> See Rule 5.8 page 04</span> as attached herewith.<br />b) BAR COUNCIL OF INDIA, Part &ndash; IV, Rules of Legal Education. <span style="background-color: #ffff00;">See Rule 12 page 08</span> (attached &amp; highlighted) as attached herewith.<br />c) Chaudhary Charan Singh University, Meerut (CCS, University) <span style="background-color: #ffff00;">Vide Letter: Committee Cell/ (Prof. Course)/ 3578, Dated: 13.03.2018. ATTACHED HEREWITH</span><br />d) Hon'ble Supreme Court of India, Judgment dated: 16 Oct. 2014, kindly go through <span style="background-color: #ffff00;">Para 24 page 29, Para 29 (f) page 34</span> as attached herewith.<br />e) Judicial view on shortage of attendance<span style="background-color: #ffff00;"> page 01</span> as attached herewith.<br />f) Most Recent Mumbai High Court opinion on short attendance: kindly click on the hyperlink to see the news <a href="http://mumbaimirror.indiatimes.com/mumbai/other/bunked-class-even-hc-wont-help-you/articleshow/58188268.cms ">http://mumbaimirror.indiatimes.com/mumbai/other/bunked-class-even-hc-wont-help-you/articleshow/58188268.cms </a></p>
+<p><br /><strong><span style="background-color: #ffff00;">ATTENDANCE PUNCHING</span></strong></p>
+<p><br />a) We have informed all the students since beginning and by the commencement of this Semester during classes and through e-mails every week that <strong><span style="background-color: #ffff00;">66% class attendance is mandatory for appearing in the CCS University End-Semester examination</span></strong>, for hostel resident&rsquo;s 100% attendance is desired. <br />b) Attendance of each student on each day will be available on the attendance portal www.lloydlawcollege.in/student/ as well as on the Class Notice Board each month. <br />c) Attendance grievance will be entertained only within 24 hrs. of the time of marking / punching of the respective attendance in the attendance register / web-portal. <br />d) Every student is expected and directed to <span style="background-color: #ffff00;">share his / her User Id and Password with their Natural Parents / Lawful Guardians.</span> In case they do not do so, college will take action against them in this respect.</p>
+<p><br /><strong><span style="background-color: #ffff00;">ATTENDANCE -CUM- CHARACTER CERTIFICATE</span></strong><br />As per law, the factual total attendance that each student will attain in each semester shall be mentioned semester wise in the 'ATTENDANCE CUM CHARACTER CERTIFICATE' of the student while passing out as a <strong><span style="background-color: #ffff00;">'Mandatory Certificate' at the time of enrolment with the Bar Council of State.</span></strong> The same shall be communicated to the 'Committee Cell' of the CCS University, Meerut at the time of issue of your 'Provisional Certificates &amp; Degrees'. Any one finds himself outside the bonafide criterion and at the wrong side of the law because of his own short of attendance cannot be compensated then, college shall not be made responsible for any lapses of the student. If you fudged the attendance data through duplicate or counterfeit documents this is a criminal offence, be ready to face the criminal trial to be lodged by the college. The same shall be communicated to the Bar Council of State and the Bar Council of India.<br />Attached: Attendance record of 04 Aug. - 30 Sept. / 04 Oct. 2018</p>
+<p>Feel free to contact in any further regard,</p>
+
+
+	<p><span style="color: #333399;"><strong>Dr. Mohd. Salim</strong></span><br />
+			<span style="color: #333399;"><strong>Director </strong></span><br />
+			<span style="color: #993300;"><strong>LLOYD LAW COLLEGE</strong></span><br />
+			director@lloydlawcollege.edu.in</p>
+
+			
+			</td>
+		</tr>
+		<tr>
+			<td  align="left" bgcolor="#FFFFFF" dir="rtl" style="padding: 2px;" valign="top" width="50%">
+			<table align="center" aria-hidden="true" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:left;" width="50%">
+				<tbody>
+					<tr><!-- Column : BEGIN -->
+						<td  class="stack-column-center" width="100%">
+						<table align="left" aria-hidden="true" border="0" cellpadding="0" cellspacing="0" role="presentation" width="50%">
+							<tbody>
+								<tr>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="https://www.youtube.com/channel/UCHkM79P3HD98KZ9Tvs6L7aA/"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailimages/youtube.png" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="https://www.linkedin.com/school/lloyd-law-college---india/"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailimages/linkedin.png" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="https://www.facebook.com/LloydLawCollege/"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailimages/facebook.png" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+						<!-- Column : END -->
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+		<tr>
+			<td bgcolor="#FFFFFF">
+			<p style="padding: 5px;"><strong>11 Attachement</strong></p>
+			</td>
+		</tr>
+		<tr>
+			<td align="left" bgcolor="#FFFFFF" dir="rtl" style="padding: 10px;" valign="top" width="100%">
+			<table align="center" aria-hidden="true" border="0" cellpadding="0" cellspacing="0" role="presentation" style="float:left;" width="100%">
+				<tbody>
+					<tr><!-- Column : BEGIN -->
+						<td class="stack-column-center" width="100%">
+						<table align="left" aria-hidden="true" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%">
+							<tbody>
+								<tr>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/4.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/4.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/3.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/3.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/2.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/2.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/1.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/1.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+								</tr>
+								<tr>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/8.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/8.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/7.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/7.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/6.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/6.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/5.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/5.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+								</tr>
+								<tr>
+									
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/11.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/11.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/10.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/10.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+									<td dir="ltr" valign="top">
+									<div class="container"><a href="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/9.pdf"><img alt="alt_text" border="0" class="center-on-narrow" height="" src="http://www.lloydlawcollege.edu.in/mailer/attendance20191008/9.jpg" style="height: auto; background: #dddddd; font-family: Arial; font-size: 13px; line-height: 18px; color: #555555;" width="100%" /></a></div>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+						</td>
+						<!-- Column : END -->
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p> </p>
+
+<p style=" color:#000000; font-family: Arial; font-size: 10px; line-height: 1.1; text-align: center;">If You Don't Want College Email Communication and Updates then, <unsubscribe> click here</unsubscribe></p>
+</center>
+</body>
+</html>
