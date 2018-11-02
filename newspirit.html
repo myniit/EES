@@ -191,13 +191,17 @@ background-color:#7ea87e;
 	</style>
 <script type="text/javascript"> // <![CDATA[
 //iPhone Version:
-	alert(navigator.userAgent.match);
-if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+var ua = navigator.userAgent.toLowerCase();
+alert(ua);
+var isIOS = ua.indexOf("ios") > -1;
+	
+var isAndroid = ua.indexOf("android") > -1;
+if(isIOS) {
    $("#android").hide();
 $("#iOS").show();
 }
 //Android Version:
-if(navigator.userAgent.match(/android/i)) {
+if(isAndroid) {
    $("#iOS").hide();
 $("#android").show();
 }
